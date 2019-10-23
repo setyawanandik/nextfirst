@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { fade, makeStyles } from '@material-ui/core/styles';
+import Link from 'next/link'
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -16,6 +17,12 @@ import PageviewIcon from '@material-ui/icons/Pageview';
 import { green, pink } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
+
+
+import ShareIcon from '@material-ui/icons/Share';
+
+//import NextNprogress from 'nextjs-progressbar';
+
 
 
 
@@ -66,7 +73,15 @@ const useStyles = makeStyles(theme => ({
         },
     },
     avatar: {
-        marginLeft: -20,
+        // marginLeft: -20,
+    },
+    toolbar: {
+        [theme.breakpoints.up('sm')]: {
+            paddingLeft: 0, paddingRight: 0
+        },
+        [theme.breakpoints.down('sm')]: {
+            paddingLeft: 6, paddingRight: 6
+        },
     }
 }));
 
@@ -74,14 +89,23 @@ export default function Appbar() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     return (
+
         <div className={classes.root}>
             <AppBar position="fixed">
                 <Container maxWidth="sm">
-                    <Toolbar>
-                        <a href="#">
+
+                    {/* <NextNProgress /> */}
+                    <Toolbar className={classes.toolbar}>
+                        {/* <Link href="/">
+                            <a><img height='40' width='40' src="./logo.png" alt="my image" /></a>
+                        </Link> */}
+
+                        <Link href="/"><a>
                             <Grid container justify="left" alignItems="left">
-                                <Avatar alt="Remy Sharp" src="./logo.png" className={classes.avatar} />
+                                <Avatar alt="Remy Sharp" sizes="30" src="./logo.png" className={classes.avatar} />
                             </Grid></a>
+                        </Link>
+
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />

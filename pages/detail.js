@@ -9,6 +9,8 @@ import RecipeReviewCard from '../components/card';
 
 import Link from 'next/link'
 
+import NextNprogress from '../components/progressbar';
+
 
 const Detail = () => (
     <div>
@@ -16,6 +18,12 @@ const Detail = () => (
             <title>Detail</title>
             <link rel='icon' href='/favicon.ico' />
         </Head>
+        <NextNprogress
+            color="red"
+            startPosition="0.3"
+            stopDelayMs="200"
+            height="3"
+        />
         <Appbar />
         <Container maxWidth="sm" style={{ marginTop: 160 }}>
             <h1>Detail page</h1>
@@ -33,6 +41,7 @@ const Detail = () => (
         body {
           background: #f7f7f7;
         }
+
       `}</style>
     </div>
 )
