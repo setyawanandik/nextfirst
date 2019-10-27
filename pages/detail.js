@@ -7,9 +7,14 @@ import Typography from '@material-ui/core/Typography';
 import Botbar from '../components/botbar';
 import RecipeReviewCard from '../components/card';
 
+import fetch from 'isomorphic-unfetch'
+
 import Link from 'next/link'
+//import { useRouter } from 'next/router'
+import Router from 'next/router'
 
 import NextNprogress from '../components/progressbar';
+
 
 
 const Detail = () => (
@@ -30,6 +35,9 @@ const Detail = () => (
             <Link href="/">
                 <a>Kembali Home</a>
             </Link>
+            <Link href="/fetchdata">
+                <a>Data</a>
+            </Link>
         </Container>
 
         <Container maxWidth="sm" style={{ marginTop: 60 }}>
@@ -45,5 +53,17 @@ const Detail = () => (
       `}</style>
     </div>
 )
+
+
+// const router = useRouter()
+//     const { slug } = router.query
+
+Detail.getInitialProps = async ({ req }) => {
+    console.log('haha');
+    console.log(req);
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+    const json = await res.json() // better use it inside try .. catch
+    return { stars: json }
+}
 
 export default Detail

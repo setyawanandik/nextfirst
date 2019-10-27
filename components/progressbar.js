@@ -26,17 +26,45 @@ class NextNProgress extends React.Component {
     //   NProgress.done(true);
     // }, this.props.stopDelayMs);
   };
-
+  
   render() {
     const { color, height } = this.props;
 
     return (
+     // background: ${color};
       <style jsx global>{`
+         
+      
+        -webkit-animation: AnimationName 3s ease infinite;
+        -moz-animation: AnimationName 3s ease infinite;
+        -o-animation: AnimationName 3s ease infinite;
+        animation: AnimationName 3s ease infinite;
+
+        @-webkit-keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-moz-keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-o-keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
         #nprogress {
           pointer-events: none;
         }
         #nprogress .bar {
-          background: ${color};
+          background: linear-gradient(99deg, #ff0000, #007aff, #1dba73);
           position: fixed;
           z-index: 1101;
           top: 0;
