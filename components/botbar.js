@@ -12,10 +12,15 @@ import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
+import Router, { withRouter, useRouter } from 'next/router'
+
+
+
+
 import AppBar from '@material-ui/core/AppBar';
 
 const useStyles = makeStyles(theme => ({
-//const useStyles = makeStyles({
+    //const useStyles = makeStyles({
     box: {
         width: '100%',
         padding: 0,
@@ -34,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     con: {
         [theme.breakpoints.down('xs')]: {
             // marginLeft: theme.spacing(3),
-            paddingRight: 0,            
+            paddingRight: 0,
             paddingLeft: 0,
 
         },
@@ -43,7 +48,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function Botbar() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+    const router = useRouter()
+    const q = router.pathname
+    const [value, setValue] = React.useState(q);
+    
+    console.log(q);
 
     return (
         <div className={classes.box}>
@@ -51,15 +60,17 @@ export default function Botbar() {
                 <BottomNavigation
                     value={value}
                     onChange={(event, newValue) => {
-                        setValue(newValue);
+                        Router.push(newValue);
+                      //  setValue(newValue);
                     }}
                     showLabels
                     className={classes.root}
                 >
-                    <BottomNavigationAction label="Home" icon={<HomeRoundedIcon />} />
-                    <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                    <BottomNavigationAction label="Inbox" icon={<EmailRoundedIcon />} />
-                    <BottomNavigationAction label="Account" icon={<PersonRoundedIcon />} />
+                    {/* <ActiveLink href='/about'>About</ActiveLink> */}
+                    <BottomNavigationAction label="Home" value="/" icon={<HomeRoundedIcon />} />
+                    <BottomNavigationAction label="Favorites" value="/detail" icon={<FavoriteIcon />} />
+                    <BottomNavigationAction label="Inbox" value="/inbox" icon={<EmailRoundedIcon />} />
+                    <BottomNavigationAction label="Account" value="/akun" icon={<PersonRoundedIcon />} />
 
                 </BottomNavigation></Container>
         </div>

@@ -1,21 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
-import Appbar from '../components/appbar'
-
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Botbar from '../components/botbar';
-import RecipeReviewCard from '../components/card';
-
 import fetch from 'isomorphic-unfetch'
-
 import Link from 'next/link'
-//import { useRouter } from 'next/router'
-import Router from 'next/router'
-
+import Appbar from '../components/appbar'
+import Botbar from '../components/botbar';
 import NextNprogress from '../components/progressbar';
-
-
 
 const Detail = () => (
     <div>
@@ -31,12 +22,9 @@ const Detail = () => (
         />
         <Appbar />
         <Container maxWidth="sm" style={{ marginTop: 160 }}>
-            <h1>Detail page</h1>
+            <h1>Favorit page</h1>
             <Link href="/">
                 <a>Kembali Home</a>
-            </Link>
-            <Link href="/fetchdata">
-                <a>Data</a>
             </Link>
         </Container>
 

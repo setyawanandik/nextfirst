@@ -15,7 +15,7 @@ class NextNProgress extends React.Component {
   timer = null;
 
   routeChangeStart = () => {
-   // NProgress.set(this.props.startPosition);
+    // NProgress.set(this.props.startPosition);
     NProgress.start();
   };
 
@@ -26,12 +26,12 @@ class NextNProgress extends React.Component {
     //   NProgress.done(true);
     // }, this.props.stopDelayMs);
   };
-  
+
   render() {
     const { color, height } = this.props;
 
     return (
-     // background: ${color};
+      // background: ${color};
       <style jsx global>{`
          
       
@@ -139,6 +139,11 @@ class NextNProgress extends React.Component {
     Router.events.on('routeChangeStart', this.routeChangeStart);
     Router.events.on('routeChangeComplete', this.routeChangeEnd);
     Router.events.on('routeChangeError', this.routeChangeEnd);
+    // window.onscroll = function () {
+    //   if (window.scrollY > (document.body.offsetHeight - window.outerHeight)) {
+    //     console.log("It's working!");
+    //   }
+    // }
   }
 }
 

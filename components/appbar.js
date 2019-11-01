@@ -72,8 +72,8 @@ const useStyles = makeStyles(theme => ({
             width: 200,
         },
     },
-    avatar: {
-        // marginLeft: -20,
+    avatarx: {
+        marginLeft: 0,
     },
     toolbar: {
         [theme.breakpoints.up('sm')]: {
@@ -101,8 +101,8 @@ export default function Appbar() {
                         </Link> */}
 
                         <Link href="/"><a>
-                            <Grid container justify="left" alignItems="left">
-                                <Avatar alt="Remy Sharp" sizes="30" src="./logo.png" className={classes.avatar} />
+                            <Grid container >
+                                <Avatar alt="Remy Sharp" src="../logo.png" />
                             </Grid></a>
                         </Link>
 
