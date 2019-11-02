@@ -35,7 +35,7 @@ class NextNProgress extends React.Component {
       <style jsx global>{`
          
       
-        -webkit-animation: AnimationName 3s ease infinite;
+        webkit-animation: AnimationName 3s ease infinite;
         -moz-animation: AnimationName 3s ease infinite;
         -o-animation: AnimationName 3s ease infinite;
         animation: AnimationName 3s ease infinite;

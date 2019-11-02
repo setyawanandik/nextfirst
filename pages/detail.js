@@ -33,12 +33,12 @@ const Detail = () => (
         </Container>
 
         <Botbar />
-        <style global jsx>{`
+        {/* <style global jsx>{`
         body {
           background: #f7f7f7;
         }
 
-      `}</style>
+      `}</style> */}
     </div>
 )
 

@@ -1,12 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,9 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import VisibilityIcon from '@material-ui/icons/Visibility';
 import SubjectRoundedIcon from '@material-ui/icons/SubjectRounded';
 
 import Link from 'next/link'
@@ -45,20 +41,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function RecipeReviewCard(props) {
     const classes = useStyles();
-
-    const handleDetail = () => {
-        console.log("cliked");
-        //setExpanded(!expanded);
-
-    };
-
-    const dataimg = function () {
-        console.log('masu');
-        var a = 'https://picsum.photos/600/250?random=' + props.key;
-        console.log(a);
-        return a;
-    }
-
     return (
         <Card className={classes.card}>
             <CardHeader
@@ -82,7 +64,7 @@ export default function RecipeReviewCard(props) {
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {props.description}
+                    {props.description[0].toUpperCase()+props.description.substring(1)}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>

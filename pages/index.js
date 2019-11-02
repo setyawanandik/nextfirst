@@ -1,18 +1,16 @@
 import React from 'react'
 import Head from 'next/head'
 import Appbar from '../components/appbar'
-
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Botbar from '../components/botbar';
 import RecipeReviewCard from '../components/card';
 import NextNprogress from '../components/progressbar';
-import LoadMore from '../components/loadmore';
 import fetch from 'isomorphic-unfetch';
 import { useState } from 'react'
 
 import Button from '@material-ui/core/Button';
-
+import Shimmer from '../components/shimmer';
 
 
 
@@ -23,17 +21,7 @@ function Home(props) {
   const [limit, setLimit] = useState(props.limit);
   const [loadedPost, setPost] = useState(props.posts);
 
-  const items = {
-    data: 'hahahah',
-    id: 1
-  }
 
-  const loadFunc = () => {
-    return {
-      data: 'wkwkw1',
-      id: 1
-    }
-  }
 
   const listItems = loadedPost.map((data) =>
     <RecipeReviewCard key={data.id} title={data.title} id={data.id} description={data.body} />
@@ -52,7 +40,6 @@ function Home(props) {
 
 
   return (
-
     <div>
       <Head>
         <title>Home</title>
@@ -67,18 +54,23 @@ function Home(props) {
         stopDelayMs={200}
         height="3"
       />
-
       <Appbar />
       <Container maxWidth="sm" style={{ marginTop: 100 }}>
         {listItems}
       </Container>
-      <Container maxWidth="sm" style={{ marginTop: 0,textAlign:'right' }}>
-        <Button variant="outlined" color="primary" onClick={!loading?getMorePosts:null}>
-          {!loading?"Load More":"........"}
-                </Button>
+
+      {loading ? 
+      <Container maxWidth="sm" style={{ marginTop: 10 }}>
+        <Shimmer />
+        <Shimmer />
       </Container>
-
-
+        :
+        <Container maxWidth="sm" style={{ marginTop: 0, textAlign: 'right' }}>
+          <Button variant="outlined" color="primary" onClick={!loading ? getMorePosts : null}>
+          Load More
+          </Button>
+        </Container>
+      }
 
 
 
@@ -86,8 +78,10 @@ function Home(props) {
         <Typography component="div" style={{ backgroundColor: 'transparent', height: '20vh' }} />
       </Container>
 
+
+
       <Botbar />
-      <style global jsx>{`
+      {/* <style global jsx>{`
        body {
         background: #f7f7f7;
         font-family: Roboto, sans-serif;
@@ -95,7 +89,7 @@ function Home(props) {
         font-weight: 400;
         font-style: normal;
       }
-      `}</style>
+      `}</style> */}
     </div>
   )
 }
